@@ -19,7 +19,7 @@ Implement a colored language badge pill.
 - When `language` is `null` or an empty string, renders nothing (returns `null`).
 - When `language` is `"TypeScript"`, renders a `<span>` with text `"TypeScript"` and a blue background class (`bg-blue-500` or `bg-blue-600`).
 - When `language` is `"JavaScript"`, renders a `<span>` with text `"JavaScript"` and a yellow background class (`bg-yellow-400` or `bg-yellow-500`).
-- When `language` is any other string (e.g. `"Rust"`), renders a `<span>` with that language text and a neutral/gray background class (`bg-zinc-500` or `bg-zinc-600`).
+- When `language` is `"Rust"` (or any string that is not `"TypeScript"` or `"JavaScript"`), renders a `<span>` with that exact language text and a neutral/gray background class (`bg-zinc-500` or `bg-zinc-600`).
 - The `<span>` has `text-white` and `rounded-full px-2 py-0.5 text-xs font-medium` classes.
 - Implement `LanguageBadge` exactly once; do NOT emit alternate variants.
 
@@ -28,7 +28,7 @@ Implement a colored language badge pill.
 - Test renders null for empty string: `language=""` → renders nothing
 - Test renders TypeScript badge: `language="TypeScript"` → `<span>` with text `"TypeScript"`
 - Test renders JavaScript badge: `language="JavaScript"` → `<span>` with text `"JavaScript"`
-- Test renders generic badge for unknown language: `language="Rust"` → `<span>` with text `"Rust"`
+- Test renders generic badge for Rust: `language="Rust"` → `<span>` with text `"Rust"` and gray background
 - Write ONLY these tests.
 
 ---
@@ -48,7 +48,7 @@ Implement a project card that displays one GitHub repo.
 - Renders the repo `name` as a `<h2>` (or `<h3>`) heading with an anchor link to `repo.html_url` (`target="_blank" rel="noopener noreferrer"`).
 - Renders `repo.description` as a `<p>`. If `description` is null, renders the text `"No description."`.
 - Renders a `<LanguageBadge language={repo.language} />` (import from `src/components/LanguageBadge.tsx`).
-- Renders `repo.stargazers_count` followed by the text `"stars"` (e.g. `"42 stars"`).
+- Renders `repo.stargazers_count` followed by the text `" stars"` — e.g. given `stargazers_count = 42`, the rendered text is exactly `"42 stars"`.
 - The card container has `rounded-xl border border-zinc-800 bg-zinc-900 p-6` classes.
 - Implement `ProjectCard` exactly once; do NOT emit alternate variants.
 
@@ -96,7 +96,8 @@ Wire the home page to fetch repos and render Hero + Gallery.
 
 **Acceptance Criteria:**
 - `page.tsx` is an `async` Server Component (no `"use client"` directive).
-- Exports `export const revalidate = 3600` (ISR — Vercel re-fetches every hour).
+- This page does NOT use Prisma or any database — data comes from the GitHub API via `fetchOrgRepos`. Do NOT add `export const dynamic = 'force-dynamic'`.
+- Exports `export const revalidate = 3600` (ISR — Vercel re-fetches GitHub API data every hour, no DB required).
 - Calls `fetchOrgRepos("myhumblecoder-dev")` (import from `src/lib/github.ts`) and awaits the result.
 - Renders `<HeroSection />` (import from `src/components/HeroSection.tsx`) above the gallery.
 - Renders `<ProjectsGallery repos={repos} />` (import from `src/components/ProjectsGallery.tsx`) below the hero.
