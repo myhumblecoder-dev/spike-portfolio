@@ -48,7 +48,7 @@ Implement a project card that displays one GitHub repo.
 - Renders the repo `name` as a `<h2>` (or `<h3>`) heading with an anchor link to `repo.html_url` (`target="_blank" rel="noopener noreferrer"`).
 - Renders `repo.description` as a `<p>`. If `description` is null, renders the text `"No description."`.
 - Renders a `<LanguageBadge language={repo.language} />` (import from `src/components/LanguageBadge.tsx`).
-- Renders `repo.stargazers_count` followed by the text `" stars"` — e.g. given `stargazers_count = 42`, the rendered text is exactly `"42 stars"`.
+- Renders `repo.stargazers_count` followed by the text `" stars"` — given `stargazers_count = 42`, the rendered text is exactly `"42 stars"`.
 - The card container has `rounded-xl border border-zinc-800 bg-zinc-900 p-6` classes.
 - Implement `ProjectCard` exactly once; do NOT emit alternate variants.
 
