@@ -4,7 +4,7 @@
 
 ---
 
-## Story 3.1 — LanguageBadge component
+## Story 5 — LanguageBadge component
 
 Implement a colored language badge pill.
 
@@ -33,18 +33,18 @@ Implement a colored language badge pill.
 
 ---
 
-## Story 3.2 — ProjectCard component
+## Story 6 — ProjectCard component
 
 Implement a project card that displays one GitHub repo.
 
-**Depends on:** Story 3.1
+**Depends on:** Story 5
 
 **Files to create:**
 - `src/components/ProjectCard.tsx`
 - `src/components/ProjectCard.test.tsx`
 
 **Acceptance Criteria:**
-- `ProjectCard` accepts one prop: `repo: GitHubRepo` (import type from `src/lib/github-schema.ts`).
+- `ProjectCard` accepts one prop: `repo: GitHubRepo` (import type `GitHubRepo` from `src/lib/github-schema.ts`).
 - Renders the repo `name` as a `<h2>` (or `<h3>`) heading with an anchor link to `repo.html_url` (`target="_blank" rel="noopener noreferrer"`).
 - Renders `repo.description` as a `<p>`. If `description` is null, renders the text `"No description."`.
 - Renders a `<LanguageBadge language={repo.language} />` (import from `src/components/LanguageBadge.tsx`).
@@ -61,35 +61,35 @@ Implement a project card that displays one GitHub repo.
 
 ---
 
-## Story 3.3 — ProjectsGallery component
+## Story 7 — ProjectsGallery component
 
 Implement the projects gallery grid that renders a list of repo cards.
 
-**Depends on:** Story 3.2
+**Depends on:** Story 6
 
 **Files to create:**
 - `src/components/ProjectsGallery.tsx`
 - `src/components/ProjectsGallery.test.tsx`
 
 **Acceptance Criteria:**
-- `ProjectsGallery` accepts one prop: `repos: GitHubRepo[]` (import type from `src/lib/github-schema.ts`).
+- `ProjectsGallery` accepts one prop: `repos: GitHubRepo[]` (import type `GitHubRepo` from `src/lib/github-schema.ts`).
 - Renders a `<section>` containing a CSS grid (`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6`).
 - Renders one `<ProjectCard repo={repo} key={repo.id} />` per item in `repos`.
 - When `repos` is empty, renders a `<p>` with text `"No projects found."`.
 - Implement `ProjectsGallery` exactly once; do NOT emit alternate variants.
 
 **Testing:**
-- Test renders cards for each repo: given 2 repos, renders 2 ProjectCard elements (check by repo names)
+- Test renders cards for each repo: given 2 repos, renders 2 ProjectCard elements (check by repo names in headings)
 - Test renders empty state: given `repos=[]`, renders `"No projects found."`
 - Write ONLY these tests.
 
 ---
 
-## Story 3.4 — Home page assembly
+## Story 8 — Home page assembly
 
 Wire the home page to fetch repos and render Hero + Gallery.
 
-**Depends on:** Story 1.2, Story 2.2, Story 3.3
+**Depends on:** Story 2, Story 4, Story 7
 
 **Files to modify:**
 - `src/app/page.tsx`

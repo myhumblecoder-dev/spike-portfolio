@@ -4,7 +4,7 @@
 
 ---
 
-## Story 1.1 — Root layout and global styles
+## Story 1 — Root layout and global styles
 
 Configure the root layout with metadata, font, and Tailwind dark mode class strategy.
 
@@ -22,7 +22,7 @@ Configure the root layout with metadata, font, and Tailwind dark mode class stra
 
 ---
 
-## Story 1.2 — HeroSection component
+## Story 2 — HeroSection component
 
 Implement the HeroSection presentational component that introduces Spike.
 

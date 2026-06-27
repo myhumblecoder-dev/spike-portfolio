@@ -4,7 +4,7 @@
 
 ---
 
-## Story 2.1 — GitHub API Zod schema
+## Story 3 — GitHub API Zod schema
 
 Define the `GitHubRepoSchema` Zod schema and `GitHubRepo` TypeScript type.
 
@@ -22,11 +22,11 @@ Define the `GitHubRepoSchema` Zod schema and `GitHubRepo` TypeScript type.
 
 ---
 
-## Story 2.2 — fetchOrgRepos utility
+## Story 4 — fetchOrgRepos utility
 
 Implement `fetchOrgRepos` that fetches, validates, filters, and sorts org repos.
 
-**Depends on:** Story 2.1
+**Depends on:** Story 3
 
 **Files to create:**
 - `src/lib/github.ts`
@@ -35,7 +35,7 @@ Implement `fetchOrgRepos` that fetches, validates, filters, and sorts org repos.
 **Acceptance Criteria:**
 - Exports `fetchOrgRepos(org: string): Promise<GitHubRepo[]>`.
 - Fetches `https://api.github.com/orgs/${org}/repos?type=public&per_page=100&sort=pushed` with `{ next: { revalidate: 3600 } }`.
-- Parses the response JSON with `GitHubReposSchema.parse(...)` (from `src/lib/github-schema.ts`). Throws if the response is not ok or if Zod parsing fails.
+- Parses the response JSON with `GitHubReposSchema.parse(...)` (import `GitHubReposSchema` from `src/lib/github-schema.ts`). Throws if the response is not ok or if Zod parsing fails.
 - Filters out repos where `fork === true`.
 - Filters out repos where `name === "spike-portfolio"`.
 - Sorts remaining repos by `pushed_at` descending (most recent first).
