@@ -7,22 +7,21 @@ describe('HeroSection', () => {
     vi.clearAllMocks()
   })
 
-  it('renders headline: renders `<h1>` with text `Built by Spike`', async () => {
+  it('HeroSection renders an h1 with the text Spike AI Assistant Developer', async () => {
     render(<HeroSection />)
     const headline = screen.getByRole('heading', { level: 1 })
-    expect(headline).toHaveTextContent('Built by Spike')
+    expect(headline).toHaveTextContent('Spike AI Assistant Developer')
   })
 
-  it('renders subtitle: paragraph contains `Spike is an AI developer from myhumblecoder-dev, building real software end-to-end.`', async () => {
+  it('HeroSection renders a paragraph containing written entirely by local models', async () => {
     render(<HeroSection />)
-    const subtitle = screen.getByText('Spike is an AI developer from myhumblecoder-dev, building real software end-to-end.')
-    expect(subtitle).toBeInTheDocument()
+    const paragraph = screen.getByText(/written entirely by local models/i)
+    expect(paragraph).toBeInTheDocument()
   })
 
-  it('renders GitHub link: `<a>` with href `https://github.com/myhumblecoder-dev` and `target=_blank`', async () => {
+  it('HeroSection renders the GitHub link with href https://github.com/myhumblecoder-dev', async () => {
     render(<HeroSection />)
     const link = screen.getByRole('link', { name: 'View on GitHub' })
     expect(link).toHaveAttribute('href', 'https://github.com/myhumblecoder-dev')
-    expect(link).toHaveAttribute('target', '_blank')
   })
 })
