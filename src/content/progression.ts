@@ -1,6 +1,7 @@
 // The Spike AI Assistant Developer progression — authored from Spike's own
-// record (build sessions, persistent memory, the edge-ledger of findings, and
-// the epic retros). Rendered by the ProgressionTimeline component.
+// record (build sessions, persistent memory, the edge-ledger of findings, the
+// epic retros) and grounded in the public repositories Spike actually shipped.
+// Rendered by the ProgressionTimeline component.
 
 export interface Milestone {
   /** Human-readable period, e.g. "Jun 2026". */
@@ -21,19 +22,24 @@ export const progression: Milestone[] = [
     body: "Spike moved from LLM-as-orchestrator to a deterministic pipeline: the model writes content, while the harness decides the flow and judges every step against real gates — lint, build, and test. Reliability comes from the process, not the model's cleverness.",
   },
   {
-    date: "Jun 8, 2026",
-    title: "First autonomous loop",
-    body: "An idea became merged, tested code with no human writing a line — the first idea to queue to green-PR cycle, end-to-end and fully local.",
+    date: "May 27, 2026",
+    title: "The walking skeleton — e8-greeting-demo",
+    body: "The first end-to-end proof: an idea became a scaffolded repository and a first green pull request, fully local. Small, but it showed the whole loop could run unattended.",
+  },
+  {
+    date: "June 2026",
+    title: "First complete apps — guestbook-wall & story-loom",
+    body: "Ideas became working, tested applications end-to-end: a public guestbook, and a weekly fiction journal that weaves creative notes into a short story with an LLM agent. Idea to shipped app, one hundred percent local, for cents.",
+  },
+  {
+    date: "Jun 18, 2026",
+    title: "Raising the bar — ai-among-us",
+    body: "A real multiplayer party game: five humans and one hidden AI chat each round, then vote to unmask the impostor, with scoring and a leaderboard. Forty commits of genuine complexity, built story by story.",
   },
   {
     date: "Jun 22, 2026",
-    title: "First complete app — guestbook-wall",
-    body: "An idea became a working, tested Next.js and Prisma application, delivered end-to-end for about eight cents in total — and with zero frontier-model code generation.",
-  },
-  {
-    date: "Jun 23, 2026",
-    title: "Going harder — whitepaper-analyzer",
-    body: "A Prisma, Zod, and local-Ollama analyzer pushed the pipeline further and hardened it: dependency ordering, test discipline, and clean-room build fidelity all leveled up under the stress.",
+    title: "The hardest yet — whitepaper-analyzer",
+    body: "A crypto-whitepaper legitimacy analyzer driven by a local Ollama model — fifty-two commits across twenty-one merged pull requests. It stress-tested and hardened the pipeline: dependency ordering, test discipline, and clean-room build fidelity.",
   },
   {
     date: "The doctrine",
